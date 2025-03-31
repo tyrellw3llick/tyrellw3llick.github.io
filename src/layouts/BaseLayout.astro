@@ -1,0 +1,39 @@
+---
+import '../styles/global.css';
+import '@fontsource-variable/onest';
+import Head from '../components/Head.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const { title } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<Head />
+		<title>{title}</title>
+	</head>
+	<body class="flex flex-col justify-between min-h-full bg-neutral-950">
+		<div class="absolute top-0 z-[-2] min-h-full w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+		<Header />
+		<slot />
+		<Footer />
+	</body>
+</html>
+
+<style>
+:root {
+	color-scheme: dark;
+	--accent-color-blue: #5391dd;
+	--accent-color-yellow: #f0ee54;
+}
+
+html, body {
+	min-height: 100vh;
+	overscroll-behavior: none;
+}
+
+body {
+	font-family: 'Onest Variable', sans-serif, system-ui;
+}
+</style>

@@ -1,0 +1,32 @@
+---
+import Badge from './Badge.astro';
+import SocialBadge from './SocialBadge.astro';
+import X from './icons/X.astro';
+import Mail from './icons/Mail.astro';
+import Github from './icons/Github.astro';
+import { Image } from 'astro:assets';
+import profilePic from '/public/profile-pic.png';
+---
+<section class="max-w-xl flex flex-col justify-center">
+	<div class="flex gap-4 mb-4">
+		<Image src={profilePic} alt="Enrique's profile character" class="rounded-full shadow-lg size-16" loading={"eager"} />
+		<a href="mailto:enriquemartin1402@gmail.com" class="flex items-center transition md:justify-center md:hover:scale-105"><Badge>Available for hiring</Badge></a>
+	</div>
+	<h1 class="font-bold text-4xl tracking-tight text-gray-800 sm:text-5xl dark:text-white">Hey, I'm Enrique</h1>
+	<p class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-[#f0ee54] [&>strong]:text-[#f0ee54] [&>strong]:font-semibold dark:text-gray-300">I'm a <strong>full-stack</strong> developer specialized in building unique <strong>web3</strong> apps, <strong>automating</strong> workflows and integrating <strong>AI</strong>.</p>
+	<nav class="flex flex-wrap mt-8 gap-4">
+		<SocialBadge href="mailto:enriquemartin1402@gmail.com">
+			<Mail class="size-4" />
+			Contact
+		</SocialBadge>
+		<SocialBadge href="https://github.com/tyrellw3llick">
+			<Github class="size-4" />
+			My GitHub
+		</SocialBadge>
+		<SocialBadge href="https://x.com/tyrell_w3llick">
+			<X class="size-4" />
+			Follow me
+		</SocialBadge>
+		
+	</nav>
+</section>

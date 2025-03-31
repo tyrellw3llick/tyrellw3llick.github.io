@@ -1,0 +1,28 @@
+---
+import ExperienceItem from './ExperienceItem.astro';
+const EXPERIENCE = [
+	{
+		date: 'Jan 2025 - March 2025',
+		title: 'AI & Automation engineer (Freelancer)',
+		company: 'Aqua Ads Agency LTD.',
+		description:
+			'Designed and implemented a sophisticated AI Agent system using Python and the Anthropic SDK to create dynamic personas within a Telegram channel, each with unique roles and personalities, efectively automating Web3 community interactions.',
+	},
+	{
+		date: 'March 2025 - Today...',
+		title: 'Freelancer/Hiring',
+		description:
+			'Available to work for any interested business or project. Meanwhile I keep my skills sharp developing personal projects and contributing to open source.',
+	},
+];
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>
