@@ -1,0 +1,75 @@
+---
+// Card.astro - Animated tech skill card component
+const { techName, techIcon: Icon } = Astro.props;
+---
+
+<div class="tech-card group">
+  <div class="card-content">
+    <Icon class="size-8 mb-2 group-hover:scale-110 transition-transform duration-300" />
+    <h3 class="text-base font-medium">{techName}</h3>
+  </div>
+</div>
+
+<style>
+  .tech-card {
+    position: relative;
+    background-color: rgba(30, 41, 59, 0.5);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    height: 120px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(76, 85, 103, 0.2);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  }
+
+  .tech-card:hover {
+    transform: translateY(-5px);
+    background-color: rgba(44, 55, 74, 0.7);
+    border-color: var(--accent-color-yellow);
+  }
+
+  .tech-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-color-yellow));
+    animation: none;
+    transition: background 0.3s ease;
+    z-index: 1;
+  }
+
+  .tech-card:hover::before {
+    animation: beam 2s infinite;
+  }
+
+  .card-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @keyframes beam {
+    0% {
+      left: -100%;
+    }
+    50%, 100% {
+      left: 100%;
+    }
+  }
+</style>

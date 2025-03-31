@@ -1,0 +1,145 @@
+---
+import Card from './Card.astro';
+import AstroIcon from './icons/AstroIcon.astro';
+import Typescript from './icons/Typescript.astro';
+import Python from './icons/Python.astro';
+import Playwright from './icons/Playwright.astro';
+import Go from './icons/Go.astro';
+import Github from './icons/Github.astro';
+import MySQL from './icons/Mysql.astro';
+import Mongodb from './icons/Mongodb.astro';
+import ReactIcon from './icons/React.astro';
+import Express from './icons/Express.astro';
+import Tailwind from './icons/Tailwind.astro';
+import Docker from './icons/Docker.astro';
+import Git from './icons/Git.astro';
+import Codeicon from './icons/Codeicon.astro';
+import Ethereum from './icons/Ethereum.astro';
+import Solidity from './icons/Solidity.astro';
+import Metamask from './icons/Metamask.astro';
+import N8n from './icons/N8n.astro';
+import Nextjs from './icons/Nextjs.astro';
+import Sqlite from './icons/Sqlite.astro';
+import Gin from './icons/Gin.astro';
+
+const SKILLS = {
+	languages: [
+		{ name: 'TypeScript', icon: Typescript },
+		{ name: 'Python', icon: Python },
+		{ name: 'Golang', icon: Go },
+	],
+	frontend: [
+		{ name: 'React', icon: ReactIcon },
+		{ name: 'Astro', icon: AstroIcon },
+		{ name: 'Tailwind CSS', icon: Tailwind },
+	],
+	backend: [
+		{ name: 'GinGonic', icon: Gin },
+		{ name: 'Express', icon: Express },
+		{ name: 'NextJS', icon: Nextjs },
+		{ name: 'MongoDB', icon: Mongodb },
+		{ name: 'MySQL', icon: MySQL },
+		{ name: 'SQLite', icon: Sqlite },
+	],
+	tools: [
+		{ name: 'Docker', icon: Docker },
+		{ name: 'Git', icon: Git },
+		{ name: 'GitHub', icon: Github },
+	],
+	web3: [
+		{ name: 'Solidity', icon: Solidity },
+		{ name: 'Ethereum', icon: Ethereum },
+		{ name: 'Web3JS', icon: Metamask },
+	],
+	aiAndAutomations: [
+		{ name: 'n8n', icon: N8n },
+		{ name: 'Playwright', icon: Playwright },
+	],
+};
+---
+
+<section id="skills" class="py-16">
+  <div class="flex items-center">
+    <Codeicon class="size-8" />
+    <h3 class="text-xl">Technical Skills</h3>
+  </div>
+
+  <div class="space-y-8 mt-8">
+    <!-- Languages -->
+    <div class="skills-category">
+      <h3 class="text-xl font-medium text-[var(--accent-color-yellow)] mb-4">Programming Languages</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {SKILLS.languages.map(skill => (
+          <Card techName={skill.name} techIcon={skill.icon} />
+        ))}
+      </div>
+    </div>
+    
+    <!-- Frontend -->
+    <div class="skills-category">
+      <h3 class="text-xl font-medium text-[var(--accent-color-yellow)] mb-4">Frontend Development</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {SKILLS.frontend.map(skill => (
+          <Card techName={skill.name} techIcon={skill.icon} />
+        ))}
+      </div>
+    </div>
+    
+    <!-- Backend -->
+    <div class="skills-category">
+      <h3 class="text-xl font-medium text-[var(--accent-color-yellow)] mb-4">Backend Development</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {SKILLS.backend.map(skill => (
+          <Card techName={skill.name} techIcon={skill.icon} />
+        ))}
+      </div>
+    </div>
+    
+    <!-- Tools -->
+    <div class="skills-category">
+      <h3 class="text-xl font-medium text-[var(--accent-color-yellow)] mb-4">DevOps & Tools</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {SKILLS.tools.map(skill => (
+          <Card techName={skill.name} techIcon={skill.icon} />
+        ))}
+      </div>
+    </div>
+    
+    <!-- Web3 -->
+    <div class="skills-category">
+      <h3 class="text-xl font-medium text-[var(--accent-color-yellow)] mb-4">Web3</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {SKILLS.web3.map(skill => (
+          <Card techName={skill.name} techIcon={skill.icon} />
+        ))}
+      </div>
+    </div>
+
+		<!-- Automation -->
+    <div class="skills-category">
+      <h3 class="text-xl font-medium text-[var(--accent-color-yellow)] mb-4">AI & Automation</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {SKILLS.aiAndAutomations.map(skill => (
+          <Card techName={skill.name} techIcon={skill.icon} />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills-category {
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
