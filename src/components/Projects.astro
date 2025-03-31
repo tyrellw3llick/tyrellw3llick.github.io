@@ -1,0 +1,204 @@
+---
+import Tailwind from './icons/Tailwind.astro';
+import AstroIcon from './icons/AstroIcon.astro';
+import Typescript from './icons/Typescript.astro';
+import Python from './icons/Python.astro';
+import Playwright from './icons/Playwright.astro';
+import Telegram from './icons/Telegram.astro';
+import Go from './icons/Go.astro';
+import Github from './icons/Github.astro';
+import MySQL from './icons/Mysql.astro';
+import Mongodb from './icons/Mongodb.astro';
+import Express from './icons/Express.astro';
+import Vite from './icons/Vite.astro';
+import Docker from './icons/Docker.astro';
+import ReactIcon from './icons/React.astro';
+import Solana from './icons/Solana.astro';
+import Bash from './icons/Bash.astro';
+import Lua from './icons/Lua.astro';
+import SocialBadge from './SocialBadge.astro';
+
+const TAGS = {
+	TAILWIND: {
+		name: 'Tailwind CSS',
+		class: 'bg-[#003159] text-white',
+		icon: Tailwind,
+	},
+	ASTRO: {
+		name: 'Astro',
+		class: 'bg-[#0d114f] text-white',
+		icon: AstroIcon,
+	},
+	TYPESCRIPT: {
+		name: 'Typescript',
+		class: 'bg-[#0db7ed] text-white',
+		icon: Typescript,
+	},
+	PYYHON: {
+		name: 'Python',
+		class: 'bg-yellow-500 text-white',
+		icon: Python,
+	},
+	PLAYWRIGHT: {
+		name: 'Playwright',
+		class: 'bg-red-300 text-white',
+		icon: Playwright,
+	},
+	TELEGRAM: {
+		name: 'Python-telegram-bot',
+		class: 'bg-pink-500 text-white',
+		icon: Telegram,
+	},
+	GO: {
+		name: 'Golang',
+		class: 'bg-[#00acd7] text-white',
+		icon: Go,
+	},
+	GITHUB: {
+		name: 'Github Actions',
+		class: 'bg-gray-900 text-white',
+		icon: Github,
+	},
+	MySQL: {
+		name: 'MySQL',
+		class: 'bg-[#00758f] text-white',
+		icon: MySQL,
+	},
+	MONGODB: {
+		name: 'MongoDB',
+		class: 'bg-[#13aa52] text-white',
+		icon: Mongodb,
+	},
+	EXPRESS: {
+		name: 'Express',
+		class: 'bg-gray-800 text-white',
+		icon: Express,
+	},
+	VITE: {
+		name: 'Vite',
+		class: 'bg-yellow-600 text-white',
+		icon: Vite,
+	},
+	DOCKER: {
+		name: 'Docker',
+		class: 'bg-[#3178c6] text-white',
+		icon: Docker,
+	},
+	REACT: {
+		name: 'React',
+		class: 'bg-[#003159] text-white',
+		icon: ReactIcon,
+	},
+	SOLANAWEB3JS: {
+		name: 'Solana Web3js',
+		class: 'bg-[#221314] text-white',
+		icon: Solana,
+	},
+	SOLANAWALLETADAPTER: {
+		name: 'Solana Wallet Adapter',
+		class: 'bg-[#221314] text-white',
+		icon: Solana,
+	},
+	BASH: {
+		name: 'Bash',
+		class: 'bg-[#4eaa25] text-white',
+		icon: Bash,
+	},
+	LUA: {
+		name: 'Lua',
+		class: 'bg-[#000080] text-white',
+		icon: Lua,
+	},
+};
+
+const PROJECTS = [
+	{
+		title: '.dotfiles',
+		description:
+			'It is more like a hobby than a pofessional project. I keep my dotfiles in a public repo to share with others and to have a backup of my configurations.',
+		github: { link1: 'https://github.com/tyrellw3llick/.dotfiles' },
+		image: '/dotfiles.webp',
+		tags: [TAGS.LUA, TAGS.BASH],
+	},
+	{
+		title: 'Deus Ex Protocol',
+		description:
+			"Full-stack web3 application powered by Solana's blockchain. I consider this my best project so far. Please click in the link to watch the demo.",
+		link: 'https://www.youtube.com/watch?v=R_TMCzLqK5k',
+		linkText: 'Watch Demo',
+		github: {
+			link1: 'https://github.com/tyrellw3llick/deus-ex-protocol-frontend',
+			link2: 'https://github.com/tyrellw3llick/deus-ex-protocol-backend',
+		},
+		image: 'deus-ex-protocol.webp',
+		tags: [
+			TAGS.REACT,
+			TAGS.SOLANAWEB3JS,
+			TAGS.SOLANAWALLETADAPTER,
+			TAGS.EXPRESS,
+			TAGS.TAILWIND,
+			TAGS.TYPESCRIPT,
+			TAGS.VITE,
+			TAGS.DOCKER,
+			TAGS.GITHUB,
+			TAGS.MONGODB,
+		],
+	},
+	{
+		title: 'Letsgo',
+		description:
+			"A Go web application built while following Let's Go by Alex Edwards. This project implements a production-ready web app with features like routing, templating, and database integration, serving as a learning exercise in Go web development. Ecerything is built from scratch only using the standard library.",
+		github: { link1: 'https://github.com/tyrellw3llick/letsgo' },
+		image: '/letsgo.webp',
+		tags: [TAGS.GO, TAGS.MySQL],
+	},
+	{
+		title: 'Wedjat AI',
+		description:
+			'Crypto tokens data scraper for the site gmg.one. The data is exported as json format or sent to a telegram bot. The bot is able to send the data to a channel or to a user.',
+		github: { link1: 'https://github.com/tyrellw3llick/WedjatAI' },
+		image: '/gmgn-scraper.webp',
+		tags: [TAGS.PYYHON, TAGS.PLAYWRIGHT, TAGS.TELEGRAM],
+	},
+	{
+		title: 'Personal Portfolio',
+		description:
+			'Just my personal portfolio site. I built it using Astro, Tailwindcss, and Bun. I wanted to try Astro and Bun. I am very happy with the result.',
+		github: { link1: 'https://github.com/tyrellw3llick/portfolio' },
+		image: '/personal-portfolio.webp',
+		tags: [TAGS.ASTRO, TAGS.TAILWIND],
+	},
+];
+---
+
+<section class="flex flex-col gap-y-20">
+	{PROJECTS.map(({ image, title, description, tags, link, github, linkText }) => (
+	<article>
+		<h3 class="text-2xl font-semibold text-[var(--accent-color-yellow)] mb-1">{title}</h3>
+		<ul class="flex gap-x-2 flex-row flex-wrap gap-y-2">
+			{tags.map((tag) => (
+			<li class="mb-1">
+				<span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 items-center justify-between`}>
+					<tag.icon class="size-4" />
+					{tag.name}
+				</span>
+			</li>
+			))}
+			<img src={image} alt={`Project ${title} screenshot`} class="rounded-lg shadow-2xl shadow-white/10" />
+			<p class="text-lg mt-6 dark:text-gray-300 text-pretty">{description}</p>
+			{github && (
+			<div class="flex gap-4 mt-2">
+				{github.link2 ? (
+				<>
+				<SocialBadge href={github.link1}>Frontend</SocialBadge>
+				<SocialBadge href={github.link2}>Backend</SocialBadge>
+			</>
+				) : (
+				<SocialBadge href={github.link1}>Github Repo</SocialBadge>
+				)}
+			</div>
+)}
+		</ul>
+	</article>
+	))}
+</section>

@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import profilePic from '/public/profile-pic.png';
+import profilePic from '/public/profile-pic.webp';
 const year = new Date().getFullYear();
 ---
 <footer class="bg-neutral-950 rounded-lg shadow-sm">
@@ -32,3 +32,9 @@ const year = new Date().getFullYear();
 		<span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© {year}. All Rights Reserved.</span>
 	</div>
 </footer>
+
+<style>
+a:hover {
+	color: var(--accent-color-yellow);
+}
+</style>
