@@ -5,19 +5,28 @@ import SectionContainer from '../components/SectionContainer.astro';
 import Briefcase from '../components/icons/Briefcase.astro';
 import TitleSection from '../components/TitleSection.astro';
 import Experience from '../components/Experience.astro';
+import Codeincon from '../components/icons/Codeicon.astro';
 ---
 
 <BaseLayout title="Enrique Martín - Dev Portfolio">
 	<main class="px-4 flex flex-col items-center justify-center">
-		<SectionContainer class="py-16 md:py-36 flex justify-center">
+		<SectionContainer class="py-16 md:py-36 flex flex-col justify-center max-w-xl">
 			<Hero />
 		</SectionContainer>
-		<SectionContainer id="experience" class="flex flex-col justify-center">
+
+		<SectionContainer id="experience" class="flex flex-col justify-center py-12 md:py-24">
 			<TitleSection >
 				<Briefcase class="size-8" />
 				Work Experience
 			</TitleSection>
 			<Experience />
 		</SectionContainer>
+
+		<SectionContainer id="projects" class="flex flex-col justify-center py-12 md:py-24">
+			<TitleSection>
+				<Codeincon class="size-8" />
+				Projects
+			</TitleSection>
+			{/* Projects component goes here */}
 	</main>
 </BaseLayout>
