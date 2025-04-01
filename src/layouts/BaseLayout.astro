@@ -8,16 +8,72 @@ import Footer from '../components/Footer.astro';
 const { title } = Astro.props;
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 	<head>
 		<Head />
 		<title>{title}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover" />
 	</head>
-	<body class="flex flex-col justify-between min-h-full bg-neutral-950">
+	<body class="flex flex-col justify-between min-h-full bg-neutral-950 overflow-x-hidden">
 		<div class="absolute top-0 z-[-2] min-h-full w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
 		<Header />
 		<slot />
 		<Footer />
+		
+		<!-- Scroll to top button -->
+		<button id="scroll-to-top" aria-label="Scroll to top" class="fixed bottom-5 right-5 p-2 rounded-full bg-neutral-800/80 text-white shadow-lg z-50 opacity-0 transition-opacity duration-300 hover:bg-neutral-700/80 backdrop-blur-sm">
+			<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+			</svg>
+		</button>
+		
+		<script>
+			// Handle smooth scrolling for anchor links and add active class for section detection
+			document.addEventListener('DOMContentLoaded', () => {
+				// Add smooth scrolling to all links
+				document.querySelectorAll('a[href^="/#"]').forEach(anchor => {
+					anchor.addEventListener('click', function(e) {
+						e.preventDefault();
+						const targetId = this.getAttribute('href').replace('/#', '');
+						const targetElement = document.getElementById(targetId);
+						
+						if (targetElement) {
+							window.scrollTo({
+								top: targetElement.offsetTop - 80, // Adjust for header
+								behavior: 'smooth'
+							});
+							
+							// Update the URL without reloading the page
+							history.pushState(null, '', `/#${targetId}`);
+						}
+					});
+				});
+				
+				// Scroll to top button functionality
+				const scrollToTopButton = document.getElementById('scroll-to-top');
+				
+				if (scrollToTopButton) {
+					// Show/hide button based on scroll position
+					window.addEventListener('scroll', () => {
+						if (window.scrollY > 300) {
+							scrollToTopButton.classList.add('opacity-100');
+							scrollToTopButton.classList.remove('opacity-0');
+						} else {
+							scrollToTopButton.classList.add('opacity-0');
+							scrollToTopButton.classList.remove('opacity-100');
+						}
+					});
+					
+					// Scroll to top when button is clicked
+					scrollToTopButton.addEventListener('click', () => {
+						window.scrollTo({
+							top: 0,
+							behavior: 'smooth'
+						});
+					});
+				}
+			});
+		</script>
 	</body>
 </html>
 

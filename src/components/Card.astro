@@ -15,7 +15,7 @@ const { techName, techIcon: Icon } = Astro.props;
     position: relative;
     background-color: rgba(30, 41, 59, 0.5);
     border-radius: 0.75rem;
-    padding: 1.5rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,10 +24,18 @@ const { techName, techIcon: Icon } = Astro.props;
     cursor: pointer;
     overflow: hidden;
     transition: transform 0.3s ease, background-color 0.3s ease;
-    height: 120px;
+    min-height: 100px;
+    height: auto;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(76, 85, 103, 0.2);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (min-width: 640px) {
+    .tech-card {
+      padding: 1.5rem;
+      min-height: 120px;
+    }
   }
 
   .tech-card:hover {

@@ -31,12 +31,12 @@ const SKILLS = {
 	frontend: [
 		{ name: 'React', icon: ReactIcon },
 		{ name: 'Astro', icon: AstroIcon },
+		{ name: 'NextJS', icon: Nextjs },
 		{ name: 'Tailwind CSS', icon: Tailwind },
 	],
 	backend: [
 		{ name: 'GinGonic', icon: Gin },
 		{ name: 'Express', icon: Express },
-		{ name: 'NextJS', icon: Nextjs },
 		{ name: 'MongoDB', icon: Mongodb },
 		{ name: 'MySQL', icon: MySQL },
 		{ name: 'SQLite', icon: Sqlite },
@@ -68,7 +68,7 @@ const SKILLS = {
     <!-- Languages -->
     <div class="skills-category">
       <h3 class="text-xl font-medium text-[var(--accent-color-yellow)] mb-4">Programming Languages</h3>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
         {SKILLS.languages.map(skill => (
           <Card techName={skill.name} techIcon={skill.icon} />
         ))}
@@ -78,7 +78,7 @@ const SKILLS = {
     <!-- Frontend -->
     <div class="skills-category">
       <h3 class="text-xl font-medium text-[var(--accent-color-yellow)] mb-4">Frontend Development</h3>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
         {SKILLS.frontend.map(skill => (
           <Card techName={skill.name} techIcon={skill.icon} />
         ))}
@@ -88,7 +88,7 @@ const SKILLS = {
     <!-- Backend -->
     <div class="skills-category">
       <h3 class="text-xl font-medium text-[var(--accent-color-yellow)] mb-4">Backend Development</h3>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
         {SKILLS.backend.map(skill => (
           <Card techName={skill.name} techIcon={skill.icon} />
         ))}
@@ -98,7 +98,7 @@ const SKILLS = {
     <!-- Tools -->
     <div class="skills-category">
       <h3 class="text-xl font-medium text-[var(--accent-color-yellow)] mb-4">DevOps & Tools</h3>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
         {SKILLS.tools.map(skill => (
           <Card techName={skill.name} techIcon={skill.icon} />
         ))}
@@ -108,7 +108,7 @@ const SKILLS = {
     <!-- Web3 -->
     <div class="skills-category">
       <h3 class="text-xl font-medium text-[var(--accent-color-yellow)] mb-4">Web3</h3>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
         {SKILLS.web3.map(skill => (
           <Card techName={skill.name} techIcon={skill.icon} />
         ))}
@@ -118,7 +118,7 @@ const SKILLS = {
 		<!-- Automation -->
     <div class="skills-category">
       <h3 class="text-xl font-medium text-[var(--accent-color-yellow)] mb-4">AI & Automation</h3>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
         {SKILLS.aiAndAutomations.map(skill => (
           <Card techName={skill.name} techIcon={skill.icon} />
         ))}
