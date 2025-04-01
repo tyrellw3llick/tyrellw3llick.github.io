@@ -169,9 +169,9 @@ const PROJECTS = [
 		tags: [TAGS.ASTRO, TAGS.TAILWIND],
 	},
 	{
-		title: 'Claudigo (Currently wroking)',
+		title: 'Claudigo (Currently working on)',
 		description:
-			'An open-source Claude Code like CLI tool completly written in Go. My objective is to build it using my own algorithms to handle serving the files to LLM providers. I am using Cobra, Bubbletea and Lipgloss to build the TUI.',
+			'An open-source Claude Code like CLI tool completly written in Go. My objective is to build it using my own algorithms to handle serving the files to LLM providers. I am using Cobra with Viper plus Bubbletea and Lipgloss to build the TUI.',
 		github: { link1: 'https://github.com/tyrellw3llick/claudigo' },
 		image: 'claudigo.webp',
 		tags: [TAGS.GO],
@@ -195,7 +195,7 @@ const PROJECTS = [
 			<img src={image} alt={`Project ${title} screenshot`} class="rounded-lg shadow-2xl shadow-white/10" />
 			<p class="text-lg mt-6 text-gray-300 text-pretty">{description}</p>
 			{github && (
-			<div class="flex gap-4 mt-2">
+			<div class="flex gap-4 mt-2 flex-wrap">
 				{github.link2 ? (
 				<>
 				<SocialBadge href={github.link1}>Frontend</SocialBadge>
