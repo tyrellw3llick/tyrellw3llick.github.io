@@ -1,11 +1,7 @@
 ---
-import type { CollectionEntry } from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
 import SectionContainer from '../components/SectionContainer.astro';
-
-interface Props {
-	post: CollectionEntry<'posts'>;
-}
+import Prose from '../components/Prose.astro';
 
 const { post } = Astro.props;
 const { title, description, pubDate, image, tags } = post.data;
@@ -15,8 +11,6 @@ const displayDate = new Date(pubDate).toLocaleDateString('en-US', {
 	month: 'long',
 	day: 'numeric',
 });
-
-const pageDescription = description || 'Read this blog post';
 ---
 <BaseLayout title={`${title} - Blog`}>
 	<main class="px-4 flex flex-col items-center justify-center">
@@ -30,7 +24,7 @@ const pageDescription = description || 'Read this blog post';
 					{tags && tags.length > 0 && (
 						<div class="mt-4 flex flex-wrap gap-2">
 							{tags.map((tag: string) => (
-								<a href={`/blog?tag=${encodeURIComponent(tag)}`} class="text-xs bg-neutral-700/50 hover:bg-neutral-600/50 text-neutral-300 px-2 py-1 rounded no-underline transition-colors duration-150">
+								<a href={`/blog?tag=${encodeURIComponent(tag)}`} class="text-xs text-white bg-neutral-700 hover:bg-[var(--accent-color-yellow)] hover:text-neutral-800 px-2 py-1 rounded no-underline transition-colors duration-150">
 									#{tag}
 								</a>
 							))}
@@ -52,15 +46,9 @@ const pageDescription = description || 'Read this blog post';
 
 				<hr class="border-neutral-700 my-8 not-prose" /> 
 
-				<div class="
-					prose-a:text-[var(--accent-color-blue)] 
-					hover:prose-a:text-[var(--accent-color-yellow)] 
-					prose-a:transition-colors prose-a:duration-150
-					prose-code:text-yellow-300 
-					prose-blockquote:border-l-[var(--accent-color-blue)]
-					prose-pre:bg-neutral-800/80 /* Slightly transparent pre background */
-				">
+				<Prose>
 					<slot />
+				</Prose>
 				</div>
 			</article>
 		</SectionContainer>
