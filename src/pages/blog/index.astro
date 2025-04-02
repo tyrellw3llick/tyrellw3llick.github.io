@@ -1,0 +1,141 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionContainer from '../../components/SectionContainer.astro';
+import TitleSection from '../../components/TitleSection.astro';
+import PostCard from '../../components/PostCard.astro';
+
+// 1. Fetch all non-draft blog posts
+const allPosts = await getCollection('posts');
+
+// 2. Sort posts by publication date (newest first)
+const sortedPosts = allPosts.sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+// 3. Get unique tags for filtering controls
+const allTags = [
+	...new Set(sortedPosts.flatMap((post) => post.data.tags || [])),
+].sort();
+
+// Default page title (no tag filtering on initial load)
+const pageTitle = 'Blog';
+---
+<BaseLayout title={pageTitle}>
+	<main class="px-4 flex flex-col items-center justify-center">
+		<SectionContainer class="py-16 md:py-20">
+
+			{/* Page Title */}
+			<TitleSection class="mb-8 md:mb-12 text-center">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 w-8 h-8 inline-block mr-2"> <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" /> </svg>
+				<span id="blog-title">{pageTitle}</span>
+			</TitleSection>
+
+			{/* Tag Filter Buttons */}
+			{allTags.length > 0 && (
+				<div class="mb-10 flex flex-wrap justify-center gap-2">
+					{/* All Posts Button */}
+					<button
+						data-tag="all"
+						class="js-tag-filter text-sm px-3 py-1 rounded-full transition-colors duration-200 bg-[var(--accent-color-yellow)] text-neutral-950 font-medium"
+					>
+						All Posts
+					</button>
+
+					{/* Individual Tag Buttons */}
+					{allTags.map(tag => (
+						<button
+							data-tag={tag.toLowerCase()}
+							class="js-tag-filter text-sm px-3 py-1 rounded-full transition-colors duration-200 bg-neutral-800/60 hover:bg-neutral-700/80 text-neutral-300"
+						>
+							#{tag}
+						</button>
+					))}
+				</div>
+			)}
+
+			{/* Post Cards Grid */}
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				{sortedPosts.map(post => (
+					<div class="post-card" data-tags={post.data.tags ? post.data.tags.join(',').toLowerCase() : ''}>
+						<PostCard post={post} />
+					</div>
+				))}
+			</div>
+			<p id="no-posts-message" class="text-center text-neutral-400 hidden">No posts found for the selected tag.</p>
+
+		</SectionContainer>
+	</main>
+</BaseLayout>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const postCards = document.querySelectorAll('.post-card');
+		const noPostsMessage = document.getElementById('no-posts-message');
+		const blogTitle = document.getElementById('blog-title');
+		const tagButtons = document.querySelectorAll('.js-tag-filter');
+		
+		// Set active button style
+		function setActiveButton(activeTag) {
+			tagButtons.forEach(button => {
+				const buttonTag = button.getAttribute('data-tag');
+				if (buttonTag === activeTag) {
+					// Active button - yellow for "all", blue for tags
+					if (buttonTag === 'all') {
+						button.classList.remove('bg-neutral-800/60', 'hover:bg-neutral-700/80', 'text-neutral-300');
+						button.classList.add('bg-[var(--accent-color-yellow)]', 'text-neutral-950', 'font-medium');
+					} else {
+						button.classList.remove('bg-neutral-800/60', 'hover:bg-neutral-700/80', 'text-neutral-300');
+						button.classList.add('bg-[var(--accent-color-blue)]', 'text-neutral-950', 'font-medium');
+					}
+				} else {
+					// Inactive button
+					button.classList.remove('bg-[var(--accent-color-yellow)]', 'bg-[var(--accent-color-blue)]', 'text-neutral-950', 'font-medium');
+					button.classList.add('bg-neutral-800/60', 'hover:bg-neutral-700/80', 'text-neutral-300');
+				}
+			});
+		}
+
+		// Filter posts by tag
+		function filterPosts(tag) {
+			let visibleCount = 0;
+			let titleText = 'Blog';
+			
+			postCards.forEach(card => {
+				const cardTags = card.getAttribute('data-tags').split(',');
+				
+				if (tag === 'all' || cardTags.includes(tag)) {
+					card.style.display = '';
+					visibleCount++;
+				} else {
+					card.style.display = 'none';
+				}
+			});
+			
+			// Update the title and message when a tag is selected
+			if (tag !== 'all') {
+				titleText = `Posts tagged with "#${tag}"`;
+			}
+			
+			blogTitle.textContent = titleText;
+			
+			// Show/hide "no posts" message
+			if (visibleCount === 0) {
+				noPostsMessage.classList.remove('hidden');
+				noPostsMessage.textContent = `No posts found for the tag "#${tag}".`;
+			} else {
+				noPostsMessage.classList.add('hidden');
+			}
+		}
+
+		// Add click event listeners to tag buttons
+		tagButtons.forEach(button => {
+			button.addEventListener('click', () => {
+				const tag = button.getAttribute('data-tag');
+				setActiveButton(tag);
+				filterPosts(tag);
+			});
+		});
+	});
+</script>
+

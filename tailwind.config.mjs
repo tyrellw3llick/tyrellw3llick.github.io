@@ -4,9 +4,9 @@ export default {
 	theme: {
 		extend: {
 			screens: {
-				'xs': '480px',
+				xs: '480px',
 			},
 		},
 	},
-	plugins: [],
-}
+	plugins: [require('@tailwindcss/typography')],
+};

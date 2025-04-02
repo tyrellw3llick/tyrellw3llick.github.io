@@ -1,1 +1,30 @@
 @import "tailwindcss";
+
+/* Default text color for Markdown content in blog posts */
+.prose {
+  color: #e5e5e5;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  color: #ffffff;
+}
+
+.prose p, .prose li {
+  color: #e5e5e5;
+}
+
+.prose strong {
+  color: #ffffff;
+}
+
+.prose blockquote {
+  color: #d1d1d1;
+}
+
+.prose code {
+  color: #f0ee54;
+}
+
+.prose a {
+  color: #5391dd;
+}
