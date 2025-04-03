@@ -2,7 +2,7 @@
 interface Props {
 	favIcon?: string;
 }
-const { favIcon = "/favicon.ico" } = Astro.props;
+const { favIcon = '/favicon.ico' } = Astro.props;
 ---
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,4 +10,8 @@ const { favIcon = "/favicon.ico" } = Astro.props;
 <meta name="keywords" content="full stack developer, web developer, portfolio, projects, React, Node.js, Python, Go, Bun, Astro, NextJs, Spain, remote work">
 <link rel="canonical" href="https://www.yourdomain.com/">
 <link rel="icon" href={favIcon} type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
 <meta name="generator" content={Astro.generator} />
