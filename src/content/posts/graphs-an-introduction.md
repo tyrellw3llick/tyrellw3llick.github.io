@@ -15,4 +15,13 @@ A graph is a way of modelling a set of connections.
 
 Yes, that explanation was not for dummies. Let's try again!
 
-Imagine you want to map the relationship between you and your friends. You could draw a graph where each person represents a node, and each friendship represents an edge.
+Imagine you want to map the relationship between you and your friends. You could
+draw a graph where each person represents a node, and each relationship represents
+an edge.
+
+![Friendship graph](/friendship-graph.webp)
+
+In this graph relations between nodes are expressed by double-headed arrows called edges.
+This can vary depending on the graph you are working with.
+
+You know $[Bob, Alice, Anna]$
