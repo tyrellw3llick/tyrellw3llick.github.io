@@ -6,7 +6,7 @@ image: {
 	src: https://isaaccomputerscience.org/api/v3.5.0/api/images/content/computer_science/data_structures_and_algorithms/data_structures/figures/isaac_cs_dsa_data_struct_graph_components.png,
 	alt: Graph infographic
 }
-tags: [data-structures, algoriths]
+tags: [data-structures, algorithms]
 ---
 
 ## What's a graph?

@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogLayout from '../../layouts/BlogLayout.astro';
 import SectionContainer from '../../components/SectionContainer.astro';
 import TitleSection from '../../components/TitleSection.astro';
 import PostCard from '../../components/PostCard.astro';
@@ -21,7 +21,7 @@ const allTags = [
 // Default page title (no tag filtering on initial load)
 const pageTitle = 'Blog';
 ---
-<BaseLayout title={pageTitle}>
+<BlogLayout title={pageTitle}>
 	<main class="px-4 flex flex-col items-center justify-center">
 		<SectionContainer class="py-16 md:py-20">
 
@@ -66,7 +66,7 @@ const pageTitle = 'Blog';
 
 		</SectionContainer>
 	</main>
-</BaseLayout>
+</BlogLayout>
 
 <script>
 	document.addEventListener('DOMContentLoaded', () => {

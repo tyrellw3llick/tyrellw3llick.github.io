@@ -1,5 +1,5 @@
 ---
-import BaseLayout from './BaseLayout.astro';
+import BlogLayout from '../layouts/BlogLayout.astro';
 import SectionContainer from '../components/SectionContainer.astro';
 import Prose from '../components/Prose.astro';
 
@@ -12,7 +12,7 @@ const displayDate = new Date(pubDate).toLocaleDateString('en-US', {
 	day: 'numeric',
 });
 ---
-<BaseLayout title={`${title} - Blog`}>
+<BlogLayout title={`${title} - Blog`}>
 	<main class="px-4 flex flex-col items-center justify-center">
 		<SectionContainer class="py-12 md:py-20">
 			<article class="prose prose-invert lg:prose-xl max-w-3xl mx-auto">
@@ -53,4 +53,4 @@ const displayDate = new Date(pubDate).toLocaleDateString('en-US', {
 			</article>
 		</SectionContainer>
 	</main>
-</BaseLayout>
+</BlogLayout>
